@@ -19,7 +19,7 @@ function CarouselHome() {
                 mysterious new enemy.
               </p>
               <button className="btn-trailer d-flex justify-content-center align-items-center gap-1 border border-0 rounded-5">
-                <AiOutlinePlayCircle className="play-icons fs-5 fw-bold" /> 
+                <AiOutlinePlayCircle className="play-icons fs-5 fw-bold" />
                 <span className="fw-bold">WATCH TRAILER</span>
               </button>
             </div>
@@ -30,15 +30,11 @@ function CarouselHome() {
         <div className="hero2">
           <div className="bg-home-filter">
             <div className="hero-content w-50 my-5 px-4 pb-5 d-flex flex-column justify-content-center">
-              <h1 className="fs-1 fw-bold text-white mb-0 ">
-                Spiderman No Way Home
-              </h1>
+              <h1 className="fs-1 fw-bold text-white mb-0 ">Jurassic World</h1>
               <p className="text-white fs-6 mt-5 mb-4">
-                For the first time in Spider-Mans screen history, the true
-                identity of this friendly hero is revealed, making his
-                responsibilities as a superpowered person clash with his normal
-                life, and putting everyone closest to him in the most threatened
-                position.
+                A safari park containing genetically engineered dinosaurs is in
+                an uproar when one of the dinosaurs escapes from its cage. An
+                animal expert and former military man tries to save everyone.
               </p>
               <button className="btn-trailer d-flex justify-content-center align-items-center gap-1 border border-0 rounded-5">
                 <AiOutlinePlayCircle className="play-icons fs-5" />
@@ -52,15 +48,18 @@ function CarouselHome() {
         <div className="hero3">
           <div className="bg-home-filter">
             <div className="hero-content w-50 my-5 px-4 pb-5 d-flex flex-column justify-content-center">
-              <h1 className="fs-1 fw-bold text-white mb-0 ">The Conjuring</h1>
+              <h1 className="fs-1 fw-bold text-white mb-0 ">
+                Spiderman No Way Home
+              </h1>
               <p className="text-white fs-6 mt-5 mb-4">
-                When husband and wife Rod and Carolyn realized that their family
-                was being disturbed by an evil spirit - the two of them finally
-                asked for help from a couple of supernatural experts to
-                investigate this problem.
+                For the first time in Spider-Mans screen history, the true
+                identity of this friendly hero is revealed, making his
+                responsibilities as a superpowered person clash with his normal
+                life, and putting everyone closest to him in the most threatened
+                position.
               </p>
               <button className="btn-trailer d-flex justify-content-center gap-1 align-items-center gap-1 border border-0 rounded-5">
-                <AiOutlinePlayCircle className="play-icons fs-5" /> 
+                <AiOutlinePlayCircle className="play-icons fs-5" />
                 <span className="fw-bold">WATCH TRAILER</span>
               </button>
             </div>

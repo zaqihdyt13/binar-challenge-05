@@ -9,7 +9,7 @@ import Header from "../components/Header";
 
 function Home() {
   const [moviePopular, setMoviePopular] = useState([]);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
@@ -94,8 +94,7 @@ function Home() {
       <Header />
       <Carousel />
       <div className="movie-section ps-4 pb-5">
-      <h1 className="my-4 mx-5 fw-bold overflow-hidden">Popular Movie</h1>
-      <div className="navbar-search overflow-hidden">
+        <div className="navbar-search overflow-hidden">
           <input
             type="text"
             placeholder="Search"
@@ -110,12 +109,32 @@ function Home() {
             <HiSearch />
           </button>
         </div>
+        <h1 className="mt-5 mb-4 mx-5 fs-2 fw-bold overflow-hidden">
+          Popular Movie
+        </h1>
         <div className="movie-container w-100 d-flex gap-4 flex-wrap justify-content-start py-3 px-5">
           {isLoggedIn ? (
             <MovieList />
           ) : (
-            <div style={{width: "100%", height: '60vh', backgroundColor: "rgba(0,0,0,0.1)"}} className="border border-4 d-flex">
-              <p className="text-muted m-auto fs-3 d-flex align-items-center gap-2"><PiWarningBold className="text-danger"/> Silahkan melakukan <span  onClick={() => navigate("/login")} style={{cursor: 'pointer'}} className="text-primary fw-bold">login</span> untuk melihat daftar film!</p>
+            <div
+              style={{
+                width: "100%",
+                height: "72vh",
+                backgroundColor: "rgba(0,0,0,0.1)",
+              }}
+              className="border border-4 d-flex"
+            >
+              <p className="text-muted m-auto fs-3 d-flex align-items-center gap-2">
+                <PiWarningBold className="text-danger" /> Silahkan melakukan{" "}
+                <span
+                  onClick={() => navigate("/login")}
+                  style={{ cursor: "pointer" }}
+                  className="text-primary fw-bold"
+                >
+                  login
+                </span>
+                untuk melihat daftar film!
+              </p>
             </div>
           )}
         </div>

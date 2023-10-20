@@ -56,7 +56,7 @@ function Header() {
   };
 
   return (
-    <header style={{backgroundColor: 'rgba(0,0,0,0.1)', boxShadow: '0 2px 5px 2px rgba(0,0,0,0.9)'}} className="navbar w-100 d-flex align-items-center py-3 px-4 position-absolute">
+    <header style={{backgroundColor: 'rgba(0,0,0,0.4)', boxShadow: '0 2px 10px 2px rgba(0,0,0,0.5)'}} className="navbar w-100 d-flex align-items-center py-3 px-4 position-absolute">
       <a className="fs-3 text-danger fw-bold" onClick={() => navigate("/")}>
         Movielist
       </a>

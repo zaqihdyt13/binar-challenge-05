@@ -68,7 +68,7 @@ function Detail() {
     <div className="dp-hero-section" style={backgroundImageStyle}>
       <div className="bg-filter w-100 h-100">
         <Header />
-        <div className="d-flex align-items-center mt-5">
+        <div className="d-flex align-items-center mt-5 pt-5">
           <div className="dp-hero-content text-white w-50 ps-3 pe-1 pb-5">
             <h1 className="fs-1 fw-bold my-4 overflow-hidden">{movie.title}</h1>
             <div className="movie-genre d-inline-block mt-2 mb-4 p-2">
