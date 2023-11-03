@@ -1,58 +1,22 @@
-import { useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState, useCallback } from "react"; 
-import axios from "axios";
-import PropTypes from "prop-types";
-import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react"; 
 import { BsPersonCircle } from "react-icons/bs";
+import { useSelector, useDispatch } from "react-redux";
+import { logout, getMe } from "../redux/actions/AuthActions";
 
 function Header() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState("");
-
-  const getUserData = useCallback(async (token) => { 
-    try {
-      const response = await axios.get("https://shy-cloud-3319.fly.dev/api/v1/auth/me", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      const data = response.data.data;
-      setUser(data);
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        if (error.response.status === 401) {
-          localStorage.removeItem("token");
-          return navigate("/");
-        }
-
-        toast.error(error.response.data.message);
-      } else {
-        toast.error(error.message);
-      }
-    }
-  }, [navigate]);
+  const { isLoggedIn, user } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token); 
-
-    if (token) {
-      getUserData(token);
-    }
-  }, [getUserData]);
-
-  const isDashboardPage = location.pathname === "/users/dashboard";
+    dispatch(getMe(null, null, null));
+  }, [dispatch]);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.reload();
-  };
-
-  Header.propTypes = {
-    userName: PropTypes.string,
+    dispatch(logout(() => {
+      window.location.reload();
+    }));
   };
 
   return (
@@ -70,11 +34,13 @@ function Header() {
           <>
             <button
               onClick={() =>
-                navigate(isDashboardPage ? "/" : "/users/dashboard")
+                // navigate(isDashboardPage ? "/" : "/users/dashboard")
+                navigate("/users/dashboard")
               }
               className="button rounded-3 text-white py-1 px-4 fs-6 me-2"
             >
-              {isDashboardPage ? "Home" : "Dashboard"}
+              {/* {isDashboardPage ? "Home" : "Dashboard"} */}
+              Dashboard
             </button>
             <button
               onClick={handleLogout}

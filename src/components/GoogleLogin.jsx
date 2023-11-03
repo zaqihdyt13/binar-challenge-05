@@ -1,45 +1,17 @@
 import { useGoogleLogin } from "@react-oauth/google";
-import axios from "axios";
-import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import {FcGoogle} from "react-icons/fc"
+import { registerLoginWithGoogle } from "../redux/actions/AuthActions";
 
-function GoogleLogin() {
-  const registerLoginWithGoogleAction = async (accessToken) => {
-    try {
-      let data = JSON.stringify({
-        access_token: accessToken,
-      });
-
-      let config = {
-        method: "post",
-        maxBodyLength: Infinity,
-        // url: 'https://shy-cloud-3319.fly.dev/api/v1/auth/google',
-        url: `${import.meta.env.VITE_BASEURL}/auth/google`,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: data,
-      };
-
-      const response = await axios.request(config);
-      const { token } = response.data.data;
-
-      localStorage.setItem("token", token);
-
-      window.location.href = "/";
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        toast.error(error.response.data.message);
-        return;
-      }
-      toast.error(error.message);
-    }
-  };
+const GoogleLogin = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const loginWithGoogle = useGoogleLogin({
-    onSuccess: (responseGoogle) =>
-      registerLoginWithGoogleAction(responseGoogle.access_token),
+    onSuccess: (responseGoogle) => 
+    dispatch(registerLoginWithGoogle(responseGoogle.access_token, navigate)),
   });
 
   return (
@@ -47,7 +19,7 @@ function GoogleLogin() {
       <span className="text-dark me-1">Google</span>
       <FcGoogle className="fs-4"/>
     </Button>
-  );
+  )
 }
 
-export default GoogleLogin;
+export default GoogleLogin
